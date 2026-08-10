@@ -7,1103 +7,942 @@
 <title>AddinNews.com — Berita Terkini Indonesia</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-    --blue:#0755a5;
-    --blue2:#0b83d5;
-    --dark:#061f43;
-    --orange:#ff7a18;
-    --bg:#f4f7fb;
-    --text:#152238;
-    --muted:#687386;
-    --white:#fff;
-    --border:#e5eaf0;
+  --blue:#0755a5;
+  --blue2:#0b83d5;
+  --dark:#061f43;
+  --orange:#ff7a18;
+  --bg:#f4f7fb;
+  --text:#152238;
+  --muted:#687386;
+  --white:#fff;
+  --border:#e5eaf0;
 }
 
 body{
-    font-family:Arial,Helvetica,sans-serif;
-    background:var(--bg);
-    color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
-a{
-    text-decoration:none;
-    color:inherit;
-}
+a{text-decoration:none;color:inherit}
 
 .container{
-    width:min(1200px,92%);
-    margin:auto;
+  width:min(1200px,92%);
+  margin:auto;
 }
 
-/* TOP BAR */
-
 .topbar{
-    background:var(--dark);
-    color:#dbeafe;
-    font-size:12px;
+  background:var(--dark);
+  color:#dbeafe;
+  font-size:12px;
 }
 
 .topbar-inner{
-    min-height:36px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
+  min-height:36px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-/* HEADER */
-
 header{
-    background:#fff;
-    position:sticky;
-    top:0;
-    z-index:100;
-    box-shadow:0 3px 18px rgba(0,0,0,.08);
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 3px 18px rgba(0,0,0,.08);
 }
 
 .header{
-    min-height:76px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:20px;
-}
-
-.logo{
-    height:56px;
-    width:auto;
-    object-fit:contain;
+  min-height:76px;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:20px;
 }
 
 .search{
-    display:flex;
-    border:1px solid var(--border);
-    border-radius:10px;
-    overflow:hidden;
+  display:flex;
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
 }
 
 .search input{
-    border:0;
-    outline:0;
-    padding:12px;
-    width:260px;
+  border:0;
+  outline:0;
+  padding:12px;
+  width:260px;
 }
 
 .search button{
-    border:0;
-    background:var(--blue);
-    color:#fff;
-    padding:0 17px;
-    cursor:pointer;
+  border:0;
+  background:var(--blue);
+  color:#fff;
+  padding:0 17px;
+  cursor:pointer;
 }
 
-/* NAVIGATION */
-
 nav{
-    border-top:1px solid #eee;
+  border-top:1px solid #eee;
 }
 
 .nav{
-    display:flex;
-    overflow-x:auto;
+  display:flex;
+  overflow-x:auto;
 }
 
 .nav a{
-    padding:13px 16px;
-    font-size:14px;
-    font-weight:bold;
-    white-space:nowrap;
+  padding:13px 16px;
+  font-size:14px;
+  font-weight:bold;
+  white-space:nowrap;
 }
 
 .nav a:hover,
 .nav a.active{
-    color:var(--blue2);
-    background:#eef7ff;
+  color:var(--blue2);
+  background:#eef7ff;
 }
 
-/* BREAKING NEWS */
-
 .breaking{
-    background:linear-gradient(90deg,var(--dark),#087bc5);
-    color:#fff;
+  background:linear-gradient(90deg,var(--dark),#087bc5);
+  color:#fff;
 }
 
 .breaking-inner{
-    min-height:42px;
-    display:flex;
-    align-items:center;
-    gap:12px;
+  min-height:42px;
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
 .breaking-label{
-    background:var(--orange);
-    padding:5px 9px;
-    border-radius:5px;
-    font-size:10px;
-    font-weight:bold;
+  background:var(--orange);
+  padding:5px 9px;
+  border-radius:5px;
+  font-size:10px;
+  font-weight:bold;
 }
-
-/* MAIN */
 
 main{
-    padding:28px 0 60px;
+  padding:28px 0 60px;
 }
 
-/* HERO */
-
 .hero{
-    display:grid;
-    grid-template-columns:1.55fr .85fr;
-    gap:20px;
+  display:grid;
+  grid-template-columns:1.55fr .85fr;
+  gap:20px;
 }
 
 .hero-main{
-    min-height:390px;
-    border-radius:18px;
-    overflow:hidden;
-    background:linear-gradient(135deg,#062653,#087bc5);
-    display:flex;
-    align-items:flex-end;
-    position:relative;
+  min-height:390px;
+  border-radius:18px;
+  overflow:hidden;
+  background:
+    linear-gradient(135deg,#062653,#087bc5);
+  display:flex;
+  align-items:flex-end;
+  position:relative;
 }
 
 .hero-main:after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:radial-gradient(
-        circle at 80% 20%,
-        rgba(255,255,255,.25),
-        transparent 25%
-    );
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 80% 20%,rgba(255,255,255,.25),transparent 25%);
 }
 
 .hero-content{
-    position:relative;
-    z-index:2;
-    padding:30px;
-    color:#fff;
+  position:relative;
+  z-index:2;
+  padding:30px;
+  color:#fff;
 }
 
 .label{
-    display:inline-block;
-    background:var(--orange);
-    padding:6px 10px;
-    border-radius:5px;
-    font-size:11px;
-    font-weight:bold;
-    margin-bottom:10px;
+  display:inline-block;
+  background:var(--orange);
+  padding:6px 10px;
+  border-radius:5px;
+  font-size:11px;
+  font-weight:bold;
+  margin-bottom:10px;
 }
 
 .hero-title{
-    font-size:38px;
-    line-height:1.15;
-    margin-bottom:12px;
+  font-size:38px;
+  line-height:1.15;
+  margin-bottom:12px;
 }
 
 .hero-meta{
-    color:#d9edff;
-    font-size:13px;
+  color:#d9edff;
+  font-size:13px;
 }
 
-/* SIDE CARD */
-
 .side{
-    display:grid;
-    gap:20px;
+  display:grid;
+  gap:20px;
 }
 
 .side-card{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:18px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
 }
 
 .side-image{
-    height:115px;
-    border-radius:10px;
-    background:linear-gradient(135deg,#dceeff,#0879c9);
-    margin-bottom:13px;
+  height:115px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#dceeff,#0879c9);
+  margin-bottom:13px;
 }
 
 .category{
-    color:var(--blue2);
-    font-size:11px;
-    font-weight:bold;
-    text-transform:uppercase;
+  color:var(--blue2);
+  font-size:11px;
+  font-weight:bold;
+  text-transform:uppercase;
 }
 
 .side-card h3{
-    font-size:18px;
-    line-height:1.3;
-    margin:6px 0;
+  font-size:18px;
+  line-height:1.3;
+  margin:6px 0;
 }
 
 .side-card p{
-    color:var(--muted);
-    font-size:13px;
+  color:var(--muted);
+  font-size:13px;
 }
-
-/* ADS */
-
-.ad{
-    min-height:90px;
-    border:1px dashed #cbd5e1;
-    border-radius:12px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:#94a3b8;
-    font-size:11px;
-    margin:22px 0;
-}
-
-.ad:after{
-    content:"RUANG IKLAN";
-}
-
-/* SECTION */
 
 .section-title{
-    margin:35px 0 17px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+  margin:35px 0 17px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 }
 
 .section-title h2{
-    font-size:25px;
+  font-size:25px;
 }
 
 .section-title span{
-    color:var(--blue2);
-    font-size:14px;
+  color:var(--blue2);
+  font-size:14px;
 }
-
-/* LAYOUT */
 
 .layout{
-    display:grid;
-    grid-template-columns:1fr 320px;
-    gap:25px;
+  display:grid;
+  grid-template-columns:1fr 320px;
+  gap:25px;
 }
 
-/* NEWS GRID */
-
 .news-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
 }
 
 .news-card{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:16px;
-    overflow:hidden;
-    transition:.2s;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  overflow:hidden;
+  transition:.2s;
 }
 
 .news-card:hover{
-    transform:translateY(-3px);
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
+  transform:translateY(-3px);
+  box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
 
 .news-image{
-    height:180px;
-    background:linear-gradient(135deg,#d9ecff,#0879c9);
+  width:100%;
+  height:180px;
+  display:block;
+  object-fit:cover;
+  background:#d9ecff;
 }
 
 .news-content{
-    padding:16px;
+  padding:16px;
 }
 
 .news-title{
-    font-size:18px;
-    line-height:1.35;
-    margin:7px 0;
+  font-size:18px;
+  line-height:1.35;
+  margin:7px 0;
 }
 
 .news-description{
-    color:var(--muted);
-    font-size:13px;
+  color:var(--muted);
+  font-size:13px;
 }
 
 .meta{
-    color:#929baa;
-    font-size:12px;
-    margin-top:10px;
+  color:#929baa;
+  font-size:12px;
+  margin-top:10px;
 }
 
 .read-more{
-    display:inline-block;
-    margin-top:12px;
-    color:var(--blue2);
-    font-size:13px;
-    font-weight:bold;
+  display:inline-block;
+  margin-top:12px;
+  color:var(--blue2);
+  font-size:13px;
+  font-weight:bold;
 }
 
-/* SIDEBAR */
+.ad{
+  min-height:90px;
+  border:1px dashed #cbd5e1;
+  border-radius:12px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#94a3b8;
+  font-size:11px;
+  margin:22px 0;
+}
+
+.ad:after{
+  content:"RUANG IKLAN";
+}
 
 .sidebar{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+  display:flex;
+  flex-direction:column;
+  gap:20px;
 }
 
 .box{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:18px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:18px;
 }
 
 .box h3{
-    margin-bottom:8px;
+  margin-bottom:8px;
 }
 
 .popular{
-    display:flex;
-    gap:12px;
-    padding:13px 0;
-    border-bottom:1px solid var(--border);
+  display:flex;
+  gap:12px;
+  padding:13px 0;
+  border-bottom:1px solid var(--border);
 }
 
 .popular:last-child{
-    border-bottom:0;
+  border-bottom:0;
 }
 
 .number{
-    color:#cbd5e1;
-    font-size:22px;
-    font-weight:bold;
+  color:#cbd5e1;
+  font-size:22px;
+  font-weight:bold;
 }
 
 .popular h4{
-    font-size:14px;
-    line-height:1.35;
+  font-size:14px;
+  line-height:1.35;
 }
 
-/* NEWSLETTER */
-
 .newsletter{
-    background:linear-gradient(135deg,#062653,#087bc5);
-    color:#fff;
-    border-radius:16px;
-    padding:20px;
+  background:linear-gradient(135deg,#062653,#087bc5);
+  color:#fff;
+  border-radius:16px;
+  padding:20px;
 }
 
 .newsletter p{
-    color:#d8edff;
-    font-size:13px;
-    margin:8px 0 15px;
+  color:#d8edff;
+  font-size:13px;
+  margin:8px 0 15px;
 }
 
 .newsletter input{
-    width:100%;
-    padding:11px;
-    border:0;
-    border-radius:8px;
-    outline:0;
-    margin-bottom:8px;
+  width:100%;
+  padding:11px;
+  border:0;
+  border-radius:8px;
+  outline:0;
+  margin-bottom:8px;
 }
 
 .newsletter button{
-    width:100%;
-    padding:11px;
-    border:0;
-    border-radius:8px;
-    background:var(--orange);
-    color:#fff;
-    font-weight:bold;
-    cursor:pointer;
+  width:100%;
+  padding:11px;
+  border:0;
+  border-radius:8px;
+  background:var(--orange);
+  color:#fff;
+  font-weight:bold;
 }
 
-/* FOOTER */
-
 footer{
-    background:var(--dark);
-    color:#cbd5e1;
-    padding:40px 0 20px;
+  background:var(--dark);
+  color:#cbd5e1;
+  padding:40px 0 20px;
 }
 
 .footer-grid{
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
-    gap:30px;
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr;
+  gap:30px;
 }
 
 footer h3{
-    color:#fff;
-    margin-bottom:10px;
+  color:#fff;
+  margin-bottom:10px;
 }
 
 footer p,
 footer a{
-    color:#b7c4d7;
-    font-size:13px;
+  color:#b7c4d7;
+  font-size:13px;
 }
 
 footer a{
-    display:block;
-    margin:6px 0;
+  display:block;
+  margin:6px 0;
 }
 
 .copy{
-    border-top:1px solid rgba(255,255,255,.1);
-    margin-top:25px;
-    padding-top:18px;
-    font-size:12px;
+  border-top:1px solid rgba(255,255,255,.1);
+  margin-top:25px;
+  padding-top:18px;
+  font-size:12px;
 }
-
-/* MOBILE */
 
 @media(max-width:850px){
 
-    .search{
-        display:none;
-    }
+  .search{
+    display:none;
+  }
 
-    .hero{
-        grid-template-columns:1fr;
-    }
+  .hero{
+    grid-template-columns:1fr;
+  }
 
-    .layout{
-        grid-template-columns:1fr;
-    }
+  .layout{
+    grid-template-columns:1fr;
+  }
+
 }
 
 @media(max-width:600px){
 
-    .hero-title{
-        font-size:28px;
-    }
+  .hero-title{
+    font-size:28px;
+  }
 
-    .news-grid{
-        grid-template-columns:1fr;
-    }
+  .news-grid{
+    grid-template-columns:1fr;
+  }
 
-    .footer-grid{
-        grid-template-columns:1fr;
-    }
+  .footer-grid{
+    grid-template-columns:1fr;
+  }
 
-    .logo{
-        height:48px;
-    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-
 <div class="topbar">
-    <div class="container topbar-inner">
-        <span id="tanggal"></span>
-        <span>Indonesia • Dunia</span>
-    </div>
+  <div class="container topbar-inner">
+    <span id="tanggal"></span>
+    <span>Indonesia • Dunia</span>
+  </div>
 </div>
-
-<!-- HEADER -->
 
 <header>
 
-<div class="container header">
+  <div class="container header">
 
-<div class="search">
-<input
-    id="searchInput"
-    type="search"
-    placeholder="Cari berita..."
->
+    <div class="search">
+      <input
+        id="searchInput"
+        type="search"
+        placeholder="Cari berita..."
+      >
+      <button onclick="cari()">🔎</button>
+    </div>
 
-<button onclick="cari()">🔎</button>
-</div>
+  </div>
 
-</div>
+  <nav>
+    <div class="container nav">
 
-<!-- NAVIGATION -->
+      <a href="#" class="active" onclick="filterKategori('Semua');return false">
+        Beranda
+      </a>
 
-<nav>
+      <a href="#" onclick="filterKategori('Nasional');return false">
+        Nasional
+      </a>
 
-<div class="container nav">
+      <a href="#" onclick="filterKategori('Politik');return false">
+        Politik
+      </a>
 
-<a href="#" class="active"
-onclick="filterKategori('Semua');return false">
-Beranda
-</a>
+      <a href="#" onclick="filterKategori('Ekonomi');return false">
+        Ekonomi
+      </a>
 
-<a href="#"
-onclick="filterKategori('Nasional');return false">
-Nasional
-</a>
+      <a href="#" onclick="filterKategori('Teknologi');return false">
+        Teknologi
+      </a>
 
-<a href="#"
-onclick="filterKategori('Politik');return false">
-Politik
-</a>
+      <a href="#" onclick="filterKategori('Olahraga');return false">
+        Olahraga
+      </a>
 
-<a href="#"
-onclick="filterKategori('Ekonomi');return false">
-Ekonomi
-</a>
+      <a href="#" onclick="filterKategori('Lifestyle');return false">
+        Lifestyle
+      </a>
 
-<a href="#"
-onclick="filterKategori('Teknologi');return false">
-Teknologi
-</a>
+      <a href="#" onclick="filterKategori('Dunia');return false">
+        Dunia
+      </a>
 
-<a href="#"
-onclick="filterKategori('Olahraga');return false">
-Olahraga
-</a>
-
-<a href="#"
-onclick="filterKategori('Lifestyle');return false">
-Lifestyle
-</a>
-
-<a href="#"
-onclick="filterKategori('Dunia');return false">
-Dunia
-</a>
-
-</div>
-
-</nav>
+    </div>
+  </nav>
 
 </header>
 
-<!-- BREAKING NEWS -->
-
 <div class="breaking">
+  <div class="container breaking-inner">
 
-<div class="container breaking-inner">
+    <span class="breaking-label">
+      BREAKING NEWS
+    </span>
 
-<span class="breaking-label">
-BREAKING NEWS
-</span>
+    <span id="breakingText">
+      AddinNews.com — Aktual, Terpercaya, Mandiri
+    </span>
 
-<span id="breakingText">
-AddinNews.com — Aktual, Terpercaya, Mandiri
-</span>
-
+  </div>
 </div>
-
-</div>
-
-<!-- MAIN -->
 
 <main class="container">
 
-<!-- HERO -->
-
 <section class="hero">
 
-<article class="hero-main">
+  <article class="hero-main">
 
-<div class="hero-content">
+    <div class="hero-content">
 
-<span class="label">
-BERITA UTAMA
-</span>
+      <span class="label">
+        BERITA UTAMA
+      </span>
 
-<h1 class="hero-title">
-Informasi terbaru Indonesia dan dunia dalam satu tempat
-</h1>
+      <h1 class="hero-title">
+        Informasi terbaru Indonesia dan dunia dalam satu tempat
+      </h1>
 
-<div class="hero-meta">
-AddinNews.com • Aktual • Terpercaya • Mandiri
-</div>
+      <div class="hero-meta">
+        AddinNews.com • Aktual • Terpercaya • Mandiri
+      </div>
 
-</div>
+    </div>
 
-</article>
+  </article>
 
-<div class="side">
+  <div class="side">
 
-<article class="side-card">
+    <article class="side-card">
 
-<div class="side-image"></div>
+      <div class="side-image"></div>
 
-<span class="category">
-BERITA
-</span>
+      <span class="category">
+        BERITA
+      </span>
 
-<h3>
-Baca berita terbaru pilihan AddinNews
-</h3>
+      <h3>
+        Baca berita terbaru pilihan AddinNews
+      </h3>
 
-<p>
-Ringkasan informasi penting yang mudah dibaca.
-</p>
+      <p>
+        Ringkasan informasi penting yang mudah dibaca.
+      </p>
 
-</article>
+    </article>
 
-<article class="side-card">
+    <article class="side-card">
 
-<span class="category">
-AI NEWS
-</span>
+      <span class="category">
+        AI NEWS
+      </span>
 
-<h3>
-Artikel AddinNews akan diperbarui otomatis
-</h3>
+      <h3>
+        Artikel AddinNews akan diperbarui otomatis
+      </h3>
 
-<p>
-Sistem AI nantinya membantu membuat artikel berdasarkan sumber berita.
-</p>
+      <p>
+        Sistem AI nantinya membantu membuat artikel berdasarkan sumber berita.
+      </p>
 
-</article>
+    </article>
 
-</div>
+  </div>
 
 </section>
 
-<!-- IKLAN -->
-
 <div class="ad"></div>
 
-<!-- BERITA -->
-
 <div class="section-title">
-
-<h2>
-Berita Terbaru
-</h2>
-
-<span id="jumlahBerita"></span>
-
+  <h2>Berita Terbaru</h2>
+  <span id="jumlahBerita"></span>
 </div>
 
 <section class="layout">
 
-<div>
+  <div>
 
-<div class="news-grid" id="newsGrid">
-</div>
+    <div class="news-grid" id="newsGrid"></div>
 
-</div>
+  </div>
 
-<!-- SIDEBAR -->
+  <aside class="sidebar">
 
-<aside class="sidebar">
+    <div class="box">
 
-<div class="box">
+      <h3>🔥 Terpopuler</h3>
 
-<h3>
-🔥 Terpopuler
-</h3>
+      <div id="popularList"></div>
 
-<div id="popularList">
-</div>
+    </div>
 
-</div>
+    <div class="ad"></div>
 
-<div class="ad"></div>
+    <div class="newsletter">
 
-<div class="newsletter">
+      <h3>📩 Newsletter</h3>
 
-<h3>
-📩 Newsletter
-</h3>
+      <p>
+        Dapatkan berita pilihan AddinNews.
+      </p>
 
-<p>
-Dapatkan berita pilihan AddinNews.
-</p>
+      <form onsubmit="subscribe(event)">
 
-<form onsubmit="subscribe(event)">
+        <input
+          id="email"
+          type="email"
+          placeholder="Email kamu"
+          required
+        >
 
-<input
-id="email"
-type="email"
-placeholder="Email kamu"
-required
->
+        <button>
+          Berlangganan
+        </button>
 
-<button>
-Berlangganan
-</button>
+      </form>
 
-</form>
+    </div>
 
-</div>
-
-</aside>
+  </aside>
 
 </section>
 
 </main>
 
-<!-- FOOTER -->
-
 <footer>
 
-<div class="container footer-grid">
+  <div class="container footer-grid">
 
-<div>
+    <div>
 
-<h3>
-AddinNews.com
-</h3>
+      <h3>AddinNews.com</h3>
 
-<p>
-Aktual • Terpercaya • Mandiri
-</p>
+      <p>
+        Aktual • Terpercaya • Mandiri
+      </p>
 
-<p>
-Portal berita modern Indonesia untuk informasi nasional dan dunia.
-</p>
+      <p>
+        Portal berita modern Indonesia untuk informasi
+        nasional dan dunia.
+      </p>
 
-</div>
+    </div>
 
-<div>
+    <div>
 
-<h3>
-Kategori
-</h3>
+      <h3>Kategori</h3>
 
-<a href="#">Nasional</a>
-<a href="#">Politik</a>
-<a href="#">Ekonomi</a>
-<a href="#">Teknologi</a>
-<a href="#">Olahraga</a>
+      <a href="#">Nasional</a>
+      <a href="#">Politik</a>
+      <a href="#">Ekonomi</a>
+      <a href="#">Teknologi</a>
+      <a href="#">Olahraga</a>
 
-</div>
+    </div>
 
-<div>
+    <div>
 
-<h3>
-Informasi
-</h3>
+      <h3>Informasi</h3>
 
-<a href="#">Tentang Kami</a>
-<a href="#">Redaksi</a>
-<a href="#">Kontak</a>
-<a href="#">Kebijakan Privasi</a>
+      <a href="#">Tentang Kami</a>
+      <a href="#">Redaksi</a>
+      <a href="#">Kontak</a>
+      <a href="#">Kebijakan Privasi</a>
 
-</div>
+    </div>
 
-</div>
+  </div>
 
-<div class="container copy">
-
-© 2026 AddinNews.com — Semua hak dilindungi.
-
-</div>
+  <div class="container copy">
+    © 2026 AddinNews.com — Semua hak dilindungi.
+  </div>
 
 </footer>
-
-<!-- DATABASE BERITA -->
 
 <script src="berita.js"></script>
 
 <script>
 
 function escapeHTML(text){
-
-return String(text)
-
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
-
+  return String(text)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;")
+    .replace(/'/g,"&#039;");
 }
-
-
-/* MENAMPILKAN BERITA */
 
 function tampilkanBerita(data){
 
-const grid=document.getElementById("newsGrid");
+  const grid=document.getElementById("newsGrid");
 
-grid.innerHTML="";
+  grid.innerHTML="";
 
-if(!data.length){
+  if(!data.length){
 
-grid.innerHTML=`
+    grid.innerHTML=`
+      <div class="box" style="grid-column:1/-1">
+        <h3>Berita tidak ditemukan</h3>
+        <p>Coba gunakan kata kunci lain.</p>
+      </div>
+    `;
 
-<div class="box"
-style="grid-column:1/-1">
+    return;
+  }
 
-<h3>
-Berita tidak ditemukan
-</h3>
+  data.forEach((item,index)=>{
 
-<p>
-Coba gunakan kata kunci lain.
-</p>
+    const card=document.createElement("article");
 
-</div>
+    card.className="news-card";
 
-`;
+    card.innerHTML=`
 
-return;
+      <img
+        class="news-image"
+        src="${escapeHTML(item.gambar || '')}"
+        alt="${escapeHTML(item.judul)}"
+        loading="lazy"
+        onerror="this.style.display='none'"
+      >
+
+      <div class="news-content">
+
+        <span class="category">
+          ${escapeHTML(item.kategori)}
+        </span>
+
+        <h3 class="news-title">
+          ${escapeHTML(item.judul)}
+        </h3>
+
+        <p class="news-description">
+          ${escapeHTML(item.ringkasan)}
+        </p>
+
+        <div class="meta">
+          ${escapeHTML(item.tanggal)} •
+          ${escapeHTML(item.sumber)}
+        </div>
+
+        <a
+          class="read-more"
+          href="artikel.html?id=${encodeURIComponent(item.id)}"
+        >
+          Baca artikel →
+        </a>
+
+      </div>
+
+    `;
+
+    grid.appendChild(card);
+
+    if((index+1)%6===0){
+
+      const ad=document.createElement("div");
+
+      ad.className="ad";
+
+      ad.style.gridColumn="1/-1";
+
+      grid.appendChild(ad);
+
+    }
+
+  });
+
+  document.getElementById("jumlahBerita").textContent=
+    data.length+" berita";
 
 }
-
-data.forEach((item,index)=>{
-
-const card=document.createElement("article");
-
-card.className="news-card";
-
-card.innerHTML=`
-
-<div class="news-image"></div>
-
-<div class="news-content">
-
-<span class="category">
-${escapeHTML(item.kategori)}
-</span>
-
-<h3 class="news-title">
-${escapeHTML(item.judul)}
-</h3>
-
-<p class="news-description">
-${escapeHTML(item.ringkasan)}
-</p>
-
-<div class="meta">
-${escapeHTML(item.tanggal)}
-•
-${escapeHTML(item.sumber)}
-</div>
-
-<a
-class="read-more"
-href="artikel.html?id=${encodeURIComponent(item.id)}">
-
-Baca artikel →
-
-</a>
-
-</div>
-
-`;
-
-grid.appendChild(card);
-
-});
-
-document.getElementById("jumlahBerita").textContent=
-data.length+" berita";
-
-}
-
-
-/* FILTER KATEGORI */
 
 function filterKategori(kategori){
 
-if(kategori==="Semua"){
+  if(kategori==="Semua"){
 
-tampilkanBerita(berita);
+    tampilkanBerita(berita);
 
-return;
+    return;
+  }
 
+  const hasil=berita.filter(item=>
+    item.kategori.toLowerCase()===
+    kategori.toLowerCase()
+  );
+
+  tampilkanBerita(hasil);
 }
-
-tampilkanBerita(
-
-berita.filter(
-
-item=>
-item.kategori.toLowerCase()
-===
-kategori.toLowerCase()
-
-)
-
-);
-
-}
-
-
-/* SEARCH */
 
 function cari(){
 
-const keyword=
-document
-.getElementById("searchInput")
-.value
-.toLowerCase()
-.trim();
+  const keyword=
+    document
+    .getElementById("searchInput")
+    .value
+    .toLowerCase()
+    .trim();
 
-if(!keyword){
+  if(!keyword){
 
-tampilkanBerita(berita);
+    tampilkanBerita(berita);
 
-return;
+    return;
+  }
 
+  const hasil=berita.filter(item=>
+
+    item.judul.toLowerCase().includes(keyword) ||
+
+    item.ringkasan.toLowerCase().includes(keyword) ||
+
+    item.kategori.toLowerCase().includes(keyword)
+
+  );
+
+  tampilkanBerita(hasil);
 }
-
-tampilkanBerita(
-
-berita.filter(item=>
-
-item.judul.toLowerCase()
-.includes(keyword)
-
-||
-
-item.ringkasan.toLowerCase()
-.includes(keyword)
-
-||
-
-item.kategori.toLowerCase()
-.includes(keyword)
-
-)
-
-);
-
-}
-
-
-/* ENTER UNTUK SEARCH */
 
 document
 .getElementById("searchInput")
 .addEventListener("keydown",function(e){
 
-if(e.key==="Enter"){
-
-cari();
-
-}
+  if(e.key==="Enter") cari();
 
 });
 
-
-/* NEWSLETTER */
-
 function subscribe(e){
 
-e.preventDefault();
+  e.preventDefault();
 
-const email=
-document.getElementById("email").value;
+  const email=
+    document.getElementById("email").value;
 
-alert(
-"Terima kasih! Newsletter untuk "
-+
-email
-+
-" berhasil didaftarkan."
-);
+  alert(
+    "Terima kasih! Newsletter untuk "+
+    email+
+    " berhasil didaftarkan."
+  );
 
-e.target.reset();
-
+  e.target.reset();
 }
-
-
-/* TANGGAL */
 
 function tanggalHariIni(){
 
-document.getElementById("tanggal")
-.textContent=
+  const d=new Date();
 
-new Date().toLocaleDateString(
-"id-ID",
-{
-weekday:"long",
-day:"numeric",
-month:"long",
-year:"numeric"
-}
-
-);
+  document.getElementById("tanggal")
+  .textContent=
+    d.toLocaleDateString("id-ID",{
+      weekday:"long",
+      day:"numeric",
+      month:"long",
+      year:"numeric"
+    });
 
 }
-
-
-/* BREAKING NEWS */
 
 const breakingNews=[
-
-"AddinNews.com — Aktual, Terpercaya, Mandiri",
-
-"Berita nasional, ekonomi, teknologi dan olahraga",
-
-"Ikuti terus perkembangan berita terbaru hari ini"
-
+  "AddinNews.com — Aktual, Terpercaya, Mandiri",
+  "Berita nasional, ekonomi, teknologi dan olahraga",
+  "Ikuti terus perkembangan berita terbaru hari ini"
 ];
 
 let breakIndex=0;
 
 setInterval(()=>{
 
-breakIndex=
-(breakIndex+1)
-%
-breakingNews.length;
+  breakIndex=(breakIndex+1)%breakingNews.length;
 
-document.getElementById("breakingText")
-.textContent=
-breakingNews[breakIndex];
+  document.getElementById("breakingText")
+  .textContent=breakingNews[breakIndex];
 
 },4000);
 
-
-/* BERITA POPULER */
-
 function tampilkanPopuler(){
 
-const list=
-document.getElementById("popularList");
+  const list=
+    document.getElementById("popularList");
 
-berita
-.slice(0,5)
-.forEach((item,index)=>{
+  const populer=
+    [...berita]
+    .slice(0,5);
 
-const div=
-document.createElement("div");
+  populer.forEach((item,index)=>{
 
-div.className="popular";
+    const div=document.createElement("div");
 
-div.innerHTML=`
+    div.className="popular";
 
-<span class="number">
-${String(index+1).padStart(2,"0")}
-</span>
+    div.innerHTML=`
 
-<h4>
-${escapeHTML(item.judul)}
-</h4>
+      <span class="number">
+        ${String(index+1).padStart(2,"0")}
+      </span>
 
-`;
+      <h4>
+        ${escapeHTML(item.judul)}
+      </h4>
 
-list.appendChild(div);
+    `;
 
-});
+    list.appendChild(div);
+
+  });
 
 }
 
-
-/* JALANKAN WEBSITE */
-
 tanggalHariIni();
-
 tampilkanBerita(berita);
-
 tampilkanPopuler();
 
 </script>
 
 </body>
-  </html>
+</html>
