@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Artikel — AddinNews.com</title>
+
+<meta name="description"
+content="Baca artikel berita terbaru di AddinNews.com">
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#f4f7fb;
+color:#152238;
+line-height:1.7;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.container{
+width:min(1100px,92%);
+margin:auto;
+}
+
+/* HEADER */
+
+header{
+background:#fff;
+box-shadow:0 3px 18px rgba(0,0,0,.08);
+}
+
+.header{
+height:75px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+height:55px;
+width:auto;
+object-fit:contain;
+}
+
+.home{
+background:#0755a5;
+color:#fff;
+padding:9px 15px;
+border-radius:8px;
+font-weight:bold;
+font-size:14px;
+}
+
+/* MAIN */
+
+main{
+padding:30px 0 60px;
+}
+
+.layout{
+display:grid;
+grid-template-columns:1fr 300px;
+gap:25px;
+}
+
+/* ARTICLE */
+
+.article{
+background:#fff;
+border:1px solid #e5eaf0;
+border-radius:16px;
+padding:30px;
+}
+
+.category{
+display:inline-block;
+color:#087bc9;
+font-size:12px;
+font-weight:bold;
+text-transform:uppercase;
+margin-bottom:8px;
+}
+
+.article h1{
+font-size:42px;
+line-height:1.15;
+margin-bottom:12px;
+}
+
+.meta{
+color:#7c8797;
+font-size:12px;
+margin-bottom:20px;
+}
+
+.cover{
+height:320px;
+border-radius:14px;
+background:
+linear-gradient(
+135deg,
+#d9ecff,
+#087bc5
+);
+margin:20px 0 28px;
+}
+
+.body{
+font-size:18px;
+}
+
+.body p{
+margin-bottom:20px;
+}
+
+.source{
+margin-top:30px;
+padding:17px;
+background:#eef7ff;
+border-left:4px solid #087bc9;
+border-radius:5px;
+font-size:14px;
+}
+
+.source a{
+color:#087bc9;
+font-weight:bold;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.box{
+background:#fff;
+border:1px solid #e5eaf0;
+border-radius:16px;
+padding:20px;
+}
+
+.box h3{
+margin-bottom:10px;
+}
+
+.related{
+padding:13px 0;
+border-bottom:1px solid #e5eaf0;
+}
+
+.related:last-child{
+border-bottom:0;
+}
+
+.related a{
+font-weight:bold;
+font-size:14px;
+line-height:1.4;
+}
+
+.related a:hover{
+color:#087bc9;
+}
+
+/* IKLAN */
+
+.ad{
+height:90px;
+border:1px dashed #bcc7d5;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#98a2af;
+font-size:11px;
+}
+
+.ad:after{
+content:"RUANG IKLAN";
+}
+
+/* FOOTER */
+
+footer{
+background:#061f43;
+color:#cbd5e1;
+padding:35px 0;
+}
+
+footer p{
+font-size:13px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+.layout{
+grid-template-columns:1fr;
+}
+
+.article h1{
+font-size:30px;
+}
+
+.body{
+font-size:16px;
+}
+
+.cover{
+height:220px;
+}
+
+}
+
+@media(max-width:500px){
+
+.article{
+padding:20px;
+}
+
+.logo{
+height:48px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container header">
+
+<a href="index.html">
+
+<img
+src="logo.png"
+class="logo"
+alt="AddinNews.com">
+
+</a>
+
+<a
+href="index.html"
+class="home">
+
+← Beranda
+
+</a>
+
+</div>
+
+</header>
+
+
+<main>
+
+<div class="container layout">
+
+<!-- ARTIKEL -->
+
+<article
+class="article"
+id="article">
+
+<!-- Artikel akan dimasukkan otomatis oleh JavaScript -->
+
+</article>
+
+
+<!-- SIDEBAR -->
+
+<aside class="sidebar">
+
+<div class="ad"></div>
+
+<div class="box">
+
+<h3>
+📰 Berita Lainnya
+</h3>
+
+<div id="related"></div>
+
+</div>
+
+<div class="ad"></div>
+
+</aside>
+
+</div>
+
+</main>
+
+
+<footer>
+
+<div class="container">
+
+<h3>
+AddinNews.com
+</h3>
+
+<p>
+Aktual • Terpercaya • Mandiri
+</p>
+
+<p>
+© 2026 AddinNews.com
+</p>
+
+</div>
+
+</footer>
+
+
+<!-- DATABASE BERITA -->
+
+<script src="berita.js"></script>
+
+
+<script>
+
+/* ESCAPE HTML */
+
+function escapeHTML(text){
+
+return String(text ?? "")
+
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* AMBIL ID ARTIKEL DARI URL */
+
+const params =
+new URLSearchParams(
+window.location.search
+);
+
+const id =
+params.get("id");
+
+
+/* CARI ARTIKEL */
+
+const artikel =
+berita.find(
+
+item =>
+String(item.id)
+===
+String(id)
+
+);
+
+
+/* TEMPAT ARTIKEL */
+
+const articleElement =
+document.getElementById("article");
+
+
+/* JIKA ARTIKEL TIDAK ADA */
+
+if(!artikel){
+
+articleElement.innerHTML=`
+
+<h1>
+Artikel tidak ditemukan
+</h1>
+
+<p>
+Maaf, artikel yang kamu cari tidak tersedia.
+</p>
+
+<br>
+
+<a
+href="index.html"
+style="color:#087bc9;font-weight:bold">
+
+← Kembali ke beranda
+
+</a>
+
+`;
+
+
+}else{
+
+
+/* JUDUL TAB */
+
+document.title =
+artikel.judul
++
+" — AddinNews.com";
+
+
+/* BUAT PARAGRAF */
+
+const paragraf =
+String(artikel.artikel || "")
+.split(/\n\n+/)
+.map(
+p =>
+`<p>${escapeHTML(p)}</p>`
+)
+.join("");
+
+
+/* TAMPILKAN ARTIKEL */
+
+articleElement.innerHTML=`
+
+<span class="category">
+
+${escapeHTML(artikel.kategori)}
+
+</span>
+
+
+<h1>
+
+${escapeHTML(artikel.judul)}
+
+</h1>
+
+
+<div class="meta">
+
+${escapeHTML(artikel.tanggal)}
+•
+${escapeHTML(artikel.sumber)}
+
+</div>
+
+
+<div class="cover"></div>
+
+
+<div class="body">
+
+${paragraf}
+
+</div>
+
+
+<div class="source">
+
+<b>
+Sumber:
+</b>
+
+${escapeHTML(artikel.sumber)}
+
+<br>
+
+<a
+href="${escapeHTML(artikel.url)}"
+target="_blank"
+rel="noopener noreferrer">
+
+Baca sumber asli →
+
+</a>
+
+</div>
+
+`;
+
+}
+
+
+/* BERITA LAINNYA */
+
+const related =
+document.getElementById("related");
+
+
+if(typeof berita !== "undefined"){
+
+const beritaLain =
+berita
+.filter(
+item =>
+String(item.id)
+!==
+String(id)
+)
+.slice(0,5);
+
+
+related.innerHTML =
+beritaLain
+.map(
+
+item => `
+
+<div class="related">
+
+<a
+href="artikel.html?id=${encodeURIComponent(item.id)}">
+
+${escapeHTML(item.judul)}
+
+</a>
+
+</div>
+
+`
+
+)
+.join("");
+
+}
+
+</script>
+
+</body>
+</html>
